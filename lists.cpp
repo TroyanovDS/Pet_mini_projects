@@ -38,7 +38,35 @@ int main()
     cout << "Запишите начальное количество элементов: ";
     cin >> n;
     
-   
+    multiset <int>::iterator it;
+    int a;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a;
+        data.insert(a);
+    }
+    
+    for (it = data.begin(); it != data.end(); it++)
+    {
+        cout << *it << " ";
+    }
+    
+    cout << endl;
+    
+    int m;
+    
+    cout << "Введите кол-во операций: ";
+    cin >> m;
+    
+    string operation;
+    
+    for (int i = 0; i < m; i++)
+    {
+        cout << "Введите операцию: ";
+        cin >> operation;
+        
+    }
+
 
 
     return 0;
