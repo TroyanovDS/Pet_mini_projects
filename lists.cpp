@@ -8,7 +8,7 @@
 
 Операции могут быть:
 + или add добавить новый элемент;
-- или delete удалить один элемент с данным значением ;
+- или delete удалить один элемент с данным значением;
 Delete_all удалить все элементы с данным значением
 
 Sum - показать сумму элементов на экран(в т.ч строк)
@@ -65,6 +65,122 @@ int main()
         cout << "Введите операцию: ";
         cin >> operation;
         
+        if ((operation == "add") || (operation == "+")) //+ или add добавить новый элемент;
+        {   
+            int t;
+            cin >> t;
+            data.insert(t);
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                cout << *it << " ";
+            }
+            
+            cout << endl;
+        }
+        
+        if ((operation == "Delete_all") || (operation == "-")) //Delete_all удалить все элементы с данным значением
+        {
+            int t;
+            cin >> t;
+            
+            data.erase(t);
+            
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                cout << *it << " ";
+            }
+            
+            cout << endl;
+        }
+        
+        
+        if(operation == "Clear") //Clear - очистить хранилище
+        {
+            data.clear();
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                cout << *it << " ";
+            }
+            
+            cout << endl;
+        }
+        
+        auto sum = 0;
+        if(operation == "Sum") //Sum - показать сумму элементов на экран(в т.ч строк)
+        {
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                sum += *it;
+            }
+            cout << "Sum= " << sum << endl;
+            
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                cout << *it << " ";
+            }
+            cout << endl;
+        }
+        
+        int k;
+        
+        if (operation == ">=") //>= показывает первый элемент, больший либо раный данному
+        {
+            
+            cin >> k;
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                if(*it >= k)
+                {
+                    cout << *it << endl;
+                    break;
+                }
+            }
+            
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                cout << *it << " ";
+            }
+            
+            cout << endl;
+        }
+        
+        if (operation == ">") //> показывает первый элемент больший данного
+        {
+            cin >> k;
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                if(*it > k)
+                {
+                    cout << *it << endl;
+                    break;
+                }
+            }
+            
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                cout << *it << " ";
+            }
+            
+            cout << endl;
+        }
+        
+        if ((operation == "delete") || (operation == "-")) //- или delete удалить один элемент с данным значением;
+        {
+            int t;
+            cin >> t;
+
+
+            it = data.find(t);
+            
+            data.erase(it);
+            
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                cout << *it << " ";
+            }
+            
+            cout << endl;
+        }
     }
 
 
