@@ -153,6 +153,58 @@ int main()
             
             cout << endl;
         }
+        
+        if(operation == "find")
+        {
+            int t, k;
+            cin >> t;
+            
+            k = 0;
+            
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                if (*it != t)
+                {
+                    k++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if (*it == t)
+            {
+                cout << k + 1 << endl;
+            }
+            else 
+            {
+                cout << "Нет такого элемента" << endl;
+            }
+        }
+        
+        if(operation == "count")
+        {
+            int t, k = 0;
+            cin >> t;
+            
+            for (it = data.begin(); it != data.end(); it++)
+            {
+                if (*it == t)
+                {
+                    k++;
+                }
+            }
+            
+            if (k == 0)
+            {
+                cout << "нет таких элементов" << endl;
+            }
+            
+            else
+            {
+                cout << k << endl;
+            }
+        }
     }
 
 
