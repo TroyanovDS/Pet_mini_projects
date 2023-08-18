@@ -29,7 +29,7 @@ void change(int *a, int n)
 
 }
 
-bool IsSorted (int *a, int n, bool &flag)
+void IsSorted (int *a, int n, bool &flag)
 {
     int k = 0, l = 0;
     for (int i = 1; i < n; i++) 
@@ -45,13 +45,13 @@ bool IsSorted (int *a, int n, bool &flag)
         }
     }
     
-    if (k == n)
+    if (k == n - 1)
     {
         cout << "Массив отсортирован по возрастанию" << endl;
         flag = true;
     }
     
-    else if (l == n)
+    else if (l == n - 1)
     {
         cout << "Массив отсортирован по убыванию" << endl;
         flag = true;
@@ -73,15 +73,17 @@ int main()
     
     mas(a, n);
     
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
     }
+    cout << endl;
     
     int count;
     while(flag == false)
     {
         change(a, n);
+        
         for (int i = 0; i < n; i++)
         {
             cout << a[i] << " ";
@@ -91,11 +93,6 @@ int main()
         count++;
         
         IsSorted(a, n, flag);
-        
-        if (flag == true)
-        {
-            break;
-        }
         
     }
     
