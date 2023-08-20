@@ -17,20 +17,23 @@ void mas (int *a, int n)
 void change(int *a, int n)
 {
     int i, j;
-    int k;
+    int l;
     
+    for (int k = 0; k < n; k++)
+    {
+        i = rand () % n;
+        j = rand () % n;
+        
+        l = a[i];
+        a[i] = a[j];
+        a[j] = l;
+    }
     
-    i = rand () % n;
-    j = rand () % n;
-    
-    k = a[i];
-    a[i] = a[j];
-    a[j] = k;
-
 }
 
-void IsSorted (int *a, int n, bool &flag)
+bool IsSorted (int *a, int n)
 {
+    bool flag = false;
     int k = 0, l = 0;
     for (int i = 1; i < n; i++) 
     {
@@ -61,7 +64,11 @@ void IsSorted (int *a, int n, bool &flag)
     {
         cout << "Массив не отсортирован" << endl;
     }
+    
+    return flag;
+    
 }
+
 int main()
 {
     int *a, n;
@@ -92,7 +99,7 @@ int main()
         
         count++;
         
-        IsSorted(a, n, flag);
+        flag = IsSorted(a, n);
         
     }
     
