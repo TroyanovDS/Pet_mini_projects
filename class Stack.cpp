@@ -36,6 +36,23 @@ T pull ()
     
     return k;
 }
+
+void show()
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+
+void stack_show()
+{
+    for (int i = n - 1; i >= 0; i--)
+    {
+        cout << a[i] << " ";
+    }
+}
+
 };
 
 
@@ -61,7 +78,19 @@ int main()
         cout << stack.pull() << " ";
     }
     
-
+    cout << endl;
+    
+    cout << "Вектор: ";
+    
+    stack.show();
+    
+    cout << endl;
+    
+    cout << "Перевёрнутый вектор: "; 
+    
+    stack.stack_show();
+    
+    cout << endl;
 
     return 0;
 }
