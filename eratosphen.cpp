@@ -1,53 +1,52 @@
 #include <iostream>
-#include <list>
-#include <iterator>
+
 using namespace std;
 
-list <int> prime_number(int n)
+int *prime_numbers (int n)
 {
-    int i;
-    list <int> count;
-    list <int>::iterator it;
-    for (int j = 1; j <= 100; j++)
+  int *a;
+
+  a = new int[n];
+
+  for (int i = 0; i < n; i++)
     {
-        count.push_back(j);
+      a[i] = i + 1;
     }
-    for (it = count.begin(); it != count.end(); it++)
+
+
+  a[0] = 0;
+
+  for (int j = 1; j < n; j += 2)
     {
-        if (*it == 1)
-        {
-            *it = 0;
-        }
-        
-        else if ((*it % 2 == 0) && (*it != 2))
-        {
-            *it = 0; 
-        }
-        
-        else if((*it % 3 == 0) && (*it != 3))
-        {
-            *it = 0;
-        }
-        
-        else if((*it % 5 == 0) && (*it != 5))
-        {
-            *it = 0;
-        }
+      a[j] = 0;
+    }
+
+  for (int j = 2; j < n; j += 3)
+    {
+      a[j] = 0;
     }
     
-    return count;
+    for (int j = 9; j < n; j += 5)
+    {
+        a[j] = 0;
+    }
+
+
+  return a;
 }
-int main()
+
+int
+main ()
 {
-    list <int> prime;
-    list <int>::iterator it;
-    
-    prime = prime_number(100);
-    
-    for (it = prime.begin(); it != prime.end(); it++)
+  int *b, n = 200;
+
+  b = new int[n];
+
+  b = prime_numbers (n);
+
+  for (int i = 0; i < n; i++)
     {
-        cout << *it << " ";
+      cout << b[i] << " ";
     }
-    
-    return 0;
+  return 0;
 }
