@@ -4,41 +4,38 @@ using namespace std;
 
 int *prime_numbers (int n)
 {
-  int *a;
+  int *a, i;
 
   a = new int[n];
 
-  for (int i = 0; i < n; i++)
-    {
-      a[i] = i + 1;
+  for (i = 0; i < n; i++) {
+        a[i] = i;
     }
 
+    a[1] = 0;
 
-  a[0] = 0;
+    i = 0;
 
-  for (int j = 1; j < n; j += 2)
-    {
-      a[j] = 0;
+    while (i < n) {
+        if (a[i] != 0) {
+            int j = i + i;
+            while (j < n) {
+                a[j] = 0;
+                j += i;
+            }
+        }
+        i++;
     }
-
-  for (int j = 2; j < n; j += 3)
-    {
-      a[j] = 0;
-    }
-    
-    for (int j = 9; j < n; j += 5)
-    {
-        a[j] = 0;
-    }
-
-
   return a;
 }
 
 int
 main ()
 {
-  int *b, n = 200;
+  int *b, n;
+  
+  cin >> n;
+
 
   b = new int[n];
 
