@@ -49,16 +49,21 @@ int second_max (int *a, int n)
         max2 = a[0];
     }
     
-    for (i = 0; i < n; i++)
+    for (i = 2; i < n; i++)
     {
         if (a[i] > max1)
         {
             max2 = max1;
             max1 = a[i];
         }
+        else if(a[i] > max2)
+        {
+            max2 = a[i];
+        }
         
         
     }
+    return max2;
     
 }
 
@@ -66,6 +71,8 @@ int second_max (int *a, int n)
 int main()
 {
     int *a, n;
+    
+    int max2;
     
     cin >> n;
     
@@ -82,5 +89,9 @@ int main()
     
     cout << "max: " << p.first << " count max: " << p.second << endl;
 
+    max2 = second_max(a, n);
+    
+    cout << "second max is: " << max2 << endl;
+    
     return 0;
 }
